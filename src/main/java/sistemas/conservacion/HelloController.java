@@ -1,4 +1,4 @@
-package sistemas.conservacion.sistemaconservacion;
+package sistemas.conservacion;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

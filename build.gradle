@@ -25,8 +25,8 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'sistemas.conservacion.sistemaconservacion'
-    mainClass = 'sistemas.conservacion.sistemaconservacion.HelloApplication'
+    mainModule = 'sistemas.conservacion'
+    mainClass = 'sistemas.conservacion.HelloApplication'
 }
 
 javafx {

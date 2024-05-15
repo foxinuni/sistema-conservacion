@@ -1,8 +1,8 @@
-module sistemas.conservacion.sistemaconservacion {
+module sistemas.conservacion {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens sistemas.conservacion.sistemaconservacion to javafx.fxml;
-    exports sistemas.conservacion.sistemaconservacion;
+    opens sistemas.conservacion to javafx.fxml;
+    exports sistemas.conservacion;
 }

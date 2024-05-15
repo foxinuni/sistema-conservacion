@@ -1,4 +1,4 @@
-package sistemas.conservacion.sistemaconservacion;
+package sistemas.conservacion;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
