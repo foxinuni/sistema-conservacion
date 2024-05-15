@@ -24,6 +24,7 @@ public class Database {
 
         // Connect to Oracle DB
         try {
+            DriverManager.setLoginTimeout(10); // Fail after 10 seconds if connection can't be established
             final Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
             return Optional.of(connection);
         } catch (Exception e) {
