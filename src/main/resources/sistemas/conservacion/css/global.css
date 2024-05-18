@@ -1,0 +1,7 @@
+.good-button {
+    -fx-background-color: rgb(122, 255, 158);
+}
+
+.good-button:hover {
+    -fx-background-color: rgb(96, 255, 139);
+}

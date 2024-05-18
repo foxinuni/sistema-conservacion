@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemas.conservacion.controllers.LayoutController">
+   <children>
+      <BorderPane fx:id="mainPane" prefHeight="600.0" prefWidth="800.0">
+         <left>
+            <VBox fx:id="leftMenu" prefHeight="546.0" prefWidth="165.0" style="-fx-background-color: #668db6;" stylesheets="@css/left-menu.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="especie" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="172.0" text="Especies" textAlignment="CENTER" textFill="#e0e8f0">
+                     <font>
+                        <Font name="Roboto Regular" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/birb.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="observacion" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="172.0" text="Observaciones" textAlignment="CENTER" textFill="#e0e8f0">
+                     <font>
+                        <Font name="Roboto Regular" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/search.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="estado" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="172.0" text="Estados" textAlignment="CENTER" textFill="#e0e8f0">
+                     <font>
+                        <Font name="Roboto Regular" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/notebook.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+         <top>
+            <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="800.0" style="-fx-background-color: #456990;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Sistema de Conservación" textAlignment="CENTER" textFill="#e0e8f0">
+                     <font>
+                        <Font name="Roboto Medium" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding></HBox>
+         </top>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #dfe7f0;" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

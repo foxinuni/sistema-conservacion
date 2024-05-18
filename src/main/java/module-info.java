@@ -8,4 +8,7 @@ module sistemas.conservacion {
 
     opens sistemas.conservacion to javafx.fxml;
     exports sistemas.conservacion;
+    exports sistemas.conservacion.stores;
+    exports sistemas.conservacion.models;
+    exports sistemas.conservacion.controllers;
 }
