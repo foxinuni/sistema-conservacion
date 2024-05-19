@@ -40,4 +40,28 @@ public class Especie {
     public String getEstadoConservacionId() {
         return estadoConservacionId;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setNombreCientifico(String nombreCientifico) {
+        this.nombreCientifico = nombreCientifico;
+    }
+
+    public void setNombreComun(String nombreComun) {
+        this.nombreComun = nombreComun;
+    }
+
+    public void setCaracteristicasFisicas(String caracteristicasFisicas) {
+        this.caracteristicasFisicas = caracteristicasFisicas;
+    }
+
+    public void setHabitad(String habitad) {
+        this.habitad = habitad;
+    }
+
+    public void setEstadoConservacionId(String estadoConservacionId) {
+        this.estadoConservacionId = estadoConservacionId;
+    }
 }

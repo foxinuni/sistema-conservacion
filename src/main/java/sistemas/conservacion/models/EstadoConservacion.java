@@ -1,5 +1,7 @@
 package sistemas.conservacion.models;
 
+import javafx.util.StringConverter;
+
 public class EstadoConservacion {
     public String id;
     public String estadoConservacion;
@@ -33,5 +35,17 @@ public class EstadoConservacion {
 
     public void setDefinicionEstado(String definicionEstado) {
         this.definicionEstado = definicionEstado;
+    }
+
+    public static class EstadoStringConverter extends StringConverter<EstadoConservacion> {
+        @Override
+        public String toString(EstadoConservacion item) {
+            return item == null ? null : item.getEstadoConservacion();
+        }
+
+        @Override
+        public EstadoConservacion fromString(String string) {
+            return null;
+        }
     }
 }

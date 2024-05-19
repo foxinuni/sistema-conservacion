@@ -53,7 +53,7 @@ public class LayoutController {
 
             // Set the loader function
             if (fxmlLoader.getController() instanceof NodeLoader nodeLoader) {
-                nodeLoader.setLoaderFunc(this::internalLoadPane);
+                nodeLoader.setLoaderFunc(this::internalLoadNode);
             }
 
             // Set the current page
@@ -70,13 +70,13 @@ public class LayoutController {
         return true;
     }
 
-    public boolean internalLoadPane(Node pane) {
-        if (pane == null) {
+    public boolean internalLoadNode(Node node) {
+        if (node == null) {
             log.error("Attempted to load a null pane");
             return false;
         }
 
-        mainPane.setCenter(pane);
+        mainPane.setCenter(node);
         return true;
     }
 

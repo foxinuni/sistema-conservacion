@@ -1,9 +1,18 @@
 .good-button {
-    -fx-background-color: rgb(122, 255, 158);
+    -fx-background-color: rgb(231, 193, 78);
 }
 
 .good-button:hover {
-    -fx-background-color: rgb(96, 255, 139);
+    -fx-background-color: rgb(228, 185, 56);
+    -fx-cursor: hand;
+}
+
+.bad-button {
+    -fx-background-color: rgb(234, 101, 101);
+}
+
+.bad-button:hover {
+    -fx-background-color: rgb(231, 78, 78);
     -fx-cursor: hand;
 }
 
