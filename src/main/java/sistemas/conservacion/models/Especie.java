@@ -2,18 +2,42 @@ package sistemas.conservacion.models;
 
 public class Especie {
     public String id;
-    public String nombre_cientifico;
-    public String nombre_comun;
-    public String caracteristicas_fisicas;
+    public String nombreCientifico;
+    public String nombreComun;
+    public String caracteristicasFisicas;
     public String habitad;
-    public String id_estado_conservacion;
+    public String estadoConservacionId;
 
-    public Especie(String id, String nombre_cientifico, String nombre_comun, String caracteristicas_fisicas, String habitad, String id_estado_conservacion) {
+    public Especie(String id, String nombreCientifico, String nombreComun, String caracteristicasFisicas, String habitad, String estadoConservacionId) {
         this.id = id;
-        this.nombre_cientifico = nombre_cientifico;
-        this.nombre_comun = nombre_comun;
-        this.caracteristicas_fisicas = caracteristicas_fisicas;
+        this.nombreCientifico = nombreCientifico;
+        this.nombreComun = nombreComun;
+        this.caracteristicasFisicas = caracteristicasFisicas;
         this.habitad = habitad;
-        this.id_estado_conservacion = id_estado_conservacion;
+        this.estadoConservacionId = estadoConservacionId;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getNombreCientifico() {
+        return nombreCientifico;
+    }
+
+    public String getNombreComun() {
+        return nombreComun;
+    }
+
+    public String getCaracteristicasFisicas() {
+        return caracteristicasFisicas;
+    }
+
+    public String getHabitad() {
+        return habitad;
+    }
+
+    public String getEstadoConservacionId() {
+        return estadoConservacionId;
     }
 }

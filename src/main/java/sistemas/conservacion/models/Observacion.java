@@ -4,20 +4,48 @@ import java.sql.Timestamp;
 
 public class Observacion {
     public String id;
-    public String id_especie;
-    public int cantidad_observada;
+    public String especieId;
+    public int cantidadObservada;
     public float latitud;
     public float longitud;
-    public Timestamp fecha_hora;
+    public Timestamp fechaHora;
     public String nota;
 
-    public Observacion(String id, String id_especie, Timestamp fecha_hora, int cantidad_observada, float latitud, float longitud, String nota) {
+    public Observacion(String id, String especieId, Timestamp fechaHora, int cantidadObservada, float latitud, float longitud, String nota) {
         this.id = id;
-        this.id_especie = id_especie;
-        this.fecha_hora = fecha_hora;
-        this.cantidad_observada = cantidad_observada;
+        this.especieId = especieId;
+        this.fechaHora = fechaHora;
+        this.cantidadObservada = cantidadObservada;
         this.latitud = latitud;
         this.longitud = longitud;
         this.nota = nota;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getEspecieId() {
+        return especieId;
+    }
+
+    public int getCantidadObservada() {
+        return cantidadObservada;
+    }
+
+    public float getLatitud() {
+        return latitud;
+    }
+
+    public float getLongitud() {
+        return longitud;
+    }
+
+    public Timestamp getFechaHora() {
+        return fechaHora;
+    }
+
+    public String getNota() {
+        return nota;
     }
 }

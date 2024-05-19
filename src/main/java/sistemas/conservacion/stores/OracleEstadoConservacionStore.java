@@ -1,5 +1,6 @@
 package sistemas.conservacion.stores;
 
+import com.google.inject.Inject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import sistemas.conservacion.models.EstadoConservacion;
@@ -16,6 +17,7 @@ public class OracleEstadoConservacionStore implements EstadoConservacionStore {
     private static final Logger log = LogManager.getLogger(OracleEstadoConservacionStore.class);
     private final Connection connection;
 
+    @Inject
     public OracleEstadoConservacionStore(Connection connection) {
         this.connection = connection;
     }
@@ -77,8 +79,8 @@ public class OracleEstadoConservacionStore implements EstadoConservacionStore {
         try {
             final PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, estadoConservacion.id);
-            statement.setString(2, estadoConservacion.estado_conservacion);
-            statement.setString(3, estadoConservacion.definicion_estado);
+            statement.setString(2, estadoConservacion.estadoConservacion);
+            statement.setString(3, estadoConservacion.definicionEstado);
             statement.executeUpdate();
 
             return true;
@@ -95,8 +97,8 @@ public class OracleEstadoConservacionStore implements EstadoConservacionStore {
 
         try {
             final PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, estadoConservacion.estado_conservacion);
-            statement.setString(2, estadoConservacion.definicion_estado);
+            statement.setString(1, estadoConservacion.estadoConservacion);
+            statement.setString(2, estadoConservacion.definicionEstado);
             statement.setString(3, estadoConservacion.id);
             statement.executeUpdate();
 

@@ -1,4 +1,4 @@
-package sistemas.conservacion;
+package sistemas.conservacion.types;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

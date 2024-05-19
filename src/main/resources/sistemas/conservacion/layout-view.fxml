@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemas.conservacion.controllers.LayoutController">
    <children>
@@ -12,7 +17,7 @@
          <left>
             <VBox fx:id="leftMenu" prefHeight="546.0" prefWidth="165.0" style="-fx-background-color: #668db6;" stylesheets="@css/left-menu.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="especie" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="172.0" text="Especies" textAlignment="CENTER" textFill="#e0e8f0">
+                  <Button fx:id="especie" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#onEspecieClick" prefHeight="37.0" prefWidth="172.0" text="Especies" textAlignment="CENTER" textFill="#e0e8f0">
                      <font>
                         <Font name="Roboto Regular" size="12.0" />
                      </font>
@@ -27,7 +32,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="observacion" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="172.0" text="Observaciones" textAlignment="CENTER" textFill="#e0e8f0">
+                  <Button fx:id="observacion" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onObservacionClick" prefHeight="37.0" prefWidth="172.0" text="Observaciones" textAlignment="CENTER" textFill="#e0e8f0">
                      <font>
                         <Font name="Roboto Regular" size="12.0" />
                      </font>
@@ -42,7 +47,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="estado" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="172.0" text="Estados" textAlignment="CENTER" textFill="#e0e8f0">
+                  <Button fx:id="estado" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" onAction="#onEstadoClick" prefHeight="37.0" prefWidth="172.0" text="Estados" textAlignment="CENTER" textFill="#e0e8f0">
                      <font>
                         <Font name="Roboto Regular" size="12.0" />
                      </font>

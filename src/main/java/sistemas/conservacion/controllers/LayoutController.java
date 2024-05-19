@@ -1,5 +1,7 @@
 package sistemas.conservacion.controllers;
 
+import com.google.inject.Inject;
+import com.google.inject.Injector;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -8,13 +10,16 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import sistemas.conservacion.Page;
+import sistemas.conservacion.types.Subview;
 
-import java.net.URL;
+import java.io.InputStream;
 
 public class LayoutController {
     private static final Logger log = LogManager.getLogger(LayoutController.class);
-    private Page currentPage = Page.OBSERVACION;
+    private Subview currentSubview;
+
+    @Inject
+    private Injector injector;
 
     @FXML
     public BorderPane mainPane;
@@ -23,31 +28,36 @@ public class LayoutController {
     public VBox leftMenu;
 
     public void initialize() {
-        if (loadPage(currentPage)) {
-            log.info("Loaded page: {}", currentPage.getTitle());
+        if (loadPage(Subview.ESPECIE)) {
+            log.info("Loaded page: {}", currentSubview.getTitle());
         }
     }
 
-    public boolean loadPage(Page page) {
+    public boolean loadPage(Subview subview) {
+        if (currentSubview == subview) {
+            return true;
+        }
+
         // Load the view
-        final URL resource = LayoutController.class.getResource(page.getFxml());
+        final InputStream resource = LayoutController.class.getResourceAsStream(subview.getFxml());
         if (resource == null) {
-            log.error("Failed to find FXML file for page: {}", page.getTitle());
+            log.error("Failed to find FXML file for page: {}", subview.getTitle());
             return false;
         }
 
         try {
             // Load the FXML file
-            final Node pane = FXMLLoader.load(resource);
+            final FXMLLoader fxmlLoader = injector.getInstance(FXMLLoader.class);
+            final Node pane = fxmlLoader.load(resource);
 
             // Set the current page
             mainPane.setCenter(pane);
-            currentPage = page;
+            currentSubview = subview;
 
             // Set the selected nav item
-            selectNavigation(page.getId());
+            selectNavigation(subview.getId());
         } catch (Exception e) {
-            log.error("Failed to load FXML file for page: {}", page.getTitle(), e);
+            log.error("Failed to load FXML file for page: {}", subview.getTitle(), e);
             return false;
         }
 
@@ -76,5 +86,18 @@ public class LayoutController {
         if (!found) {
             log.error("Failed to find navigation item with ID: {}", id);
         }
+    }
+
+    // Button event handlers
+    public void onEstadoClick() {
+        loadPage(Subview.ESTADO);
+    }
+
+    public void onEspecieClick() {
+        loadPage(Subview.ESPECIE);
+    }
+
+    public void onObservacionClick() {
+        loadPage(Subview.OBSERVACION);
     }
 }

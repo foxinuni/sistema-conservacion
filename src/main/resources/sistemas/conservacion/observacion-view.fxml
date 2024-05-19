@@ -35,31 +35,26 @@
             </BorderPane>
          </top>
          <center>
-             <ScrollPane BorderPane.alignment="CENTER">
-                 <TableView prefHeight="490.0" prefWidth="761.0" BorderPane.alignment="CENTER">
-                     <columns>
-                         <TableColumn prefWidth="75.0" text="ID" />
-                         <TableColumn prefWidth="114.0" text="Especie" />
-                         <TableColumn prefWidth="84.0" text="Cantidad" />
-                         <TableColumn prefWidth="118.0" text="Fecha y Hora" />
-                         <TableColumn prefWidth="88.0" text="Latitud" />
-                         <TableColumn prefWidth="82.0" text="Longitud" />
-                         <TableColumn prefWidth="198.0" text="Nota" />
-                     </columns>
-                     <opaqueInsets>
-                         <Insets />
-                     </opaqueInsets>
-                     <BorderPane.margin>
-                         <Insets />
-                     </BorderPane.margin>
-                 </TableView>
+             <TableView fx:id="observationTable" prefHeight="490.0" prefWidth="761.0" style="-fx-background-color: #dfe7f0;" BorderPane.alignment="CENTER">
+                 <columns>
+                     <TableColumn fx:id="observationId" prefWidth="75.0" text="ID" />
+                     <TableColumn fx:id="observationEspecie" prefWidth="114.0" text="Especie" />
+                     <TableColumn fx:id="observationCantidad" prefWidth="84.0" text="Cantidad" />
+                     <TableColumn fx:id="observationFecha" prefWidth="118.0" text="Fecha y Hora" />
+                     <TableColumn fx:id="observationLatitud" prefWidth="88.0" text="Latitud" />
+                     <TableColumn fx:id="observationLongitud" prefWidth="82.0" text="Longitud" />
+                     <TableColumn fx:id="observationNota" prefWidth="198.0" text="Nota" />
+                 </columns>
                  <opaqueInsets>
                      <Insets />
                  </opaqueInsets>
                  <BorderPane.margin>
-                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     <Insets />
                  </BorderPane.margin>
-             </ScrollPane>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+             </TableView>
          </center>
          <opaqueInsets>
             <Insets />

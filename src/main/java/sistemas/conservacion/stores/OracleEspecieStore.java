@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import com.google.inject.Inject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import sistemas.conservacion.models.Especie;
@@ -15,14 +16,15 @@ import sistemas.conservacion.models.Especie;
 public class OracleEspecieStore implements EspecieStore {
     private static final Logger log = LogManager.getLogger(OracleEspecieStore.class);
     private final Connection connection;
-    
+
+    @Inject
     public OracleEspecieStore(Connection connection) {
         this.connection = connection;
     }
 
     @Override
     public Optional<Especie> get(String id) {
-        final String query = "SELECT id, nombre_cientifico, nombre_comun, caracteristicas_fisicas, habitad, id_estado_conservacion FROM especies WHERE id = ?";
+        final String query = "SELECT id, nombre_cientifico, nombre_comun, carateristicas_fisicas, habitad, id_estado_conservacion FROM especie WHERE id = ?";
 
         try {
             final PreparedStatement statement = connection.prepareStatement(query);
@@ -34,7 +36,7 @@ public class OracleEspecieStore implements EspecieStore {
                     result.getString("id"),
                     result.getString("nombre_cientifico"),
                     result.getString("nombre_comun"),
-                    result.getString("caracteristicas_fisicas"),
+                    result.getString("carateristicas_fisicas"),
                     result.getString("habitad"),
                     result.getString("id_estado_conservacion")
                 );
@@ -50,7 +52,7 @@ public class OracleEspecieStore implements EspecieStore {
 
     @Override
     public List<Especie> getAll() {
-        final String query = "SELECT id, nombre_cientifico, nombre_comun, caracteristicas_fisicas, habitad, id_estado_conservacion FROM especies";
+        final String query = "SELECT id, nombre_cientifico, nombre_comun, carateristicas_fisicas, habitad, id_estado_conservacion FROM especie";
         final List<Especie> especies = new ArrayList<>();
 
         try {
@@ -62,7 +64,7 @@ public class OracleEspecieStore implements EspecieStore {
                     result.getString("id"),
                     result.getString("nombre_cientifico"),
                     result.getString("nombre_comun"),
-                    result.getString("caracteristicas_fisicas"),
+                    result.getString("carateristicas_fisicas"),
                     result.getString("habitad"),
                     result.getString("id_estado_conservacion")
                 ));
@@ -76,16 +78,16 @@ public class OracleEspecieStore implements EspecieStore {
 
     @Override
     public boolean create(Especie especie) {
-        final String query = "INSERT INTO especies (id, nombre_cientifico, nombre_comun, caracteristicas_fisicas, habitad, id_estado_conservacion) VALUES (?, ?, ?, ?, ?, ?)";
+        final String query = "INSERT INTO especie (id, nombre_cientifico, nombre_comun, carateristicas_fisicas, habitad, id_estado_conservacion) VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
             final PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, especie.id);
-            statement.setString(2, especie.nombre_cientifico);
-            statement.setString(3, especie.nombre_comun);
-            statement.setString(4, especie.caracteristicas_fisicas);
+            statement.setString(2, especie.nombreCientifico);
+            statement.setString(3, especie.nombreComun);
+            statement.setString(4, especie.caracteristicasFisicas);
             statement.setString(5, especie.habitad);
-            statement.setString(6, especie.id_estado_conservacion);
+            statement.setString(6, especie.estadoConservacionId);
             statement.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -96,15 +98,15 @@ public class OracleEspecieStore implements EspecieStore {
 
     @Override
     public boolean update(Especie especie) {
-        final String query = "UPDATE especies SET nombre_cientifico = ?, nombre_comun = ?, caracteristicas_fisicas = ?, habitad = ?, id_estado_conservacion = ? WHERE id = ?";
+        final String query = "UPDATE especie SET nombre_cientifico = ?, nombre_comun = ?, carateristicas_fisicas = ?, habitad = ?, id_estado_conservacion = ? WHERE id = ?";
 
         try {
             final PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, especie.nombre_cientifico);
-            statement.setString(2, especie.nombre_comun);
-            statement.setString(3, especie.caracteristicas_fisicas);
+            statement.setString(1, especie.nombreCientifico);
+            statement.setString(2, especie.nombreComun);
+            statement.setString(3, especie.caracteristicasFisicas);
             statement.setString(4, especie.habitad);
-            statement.setString(5, especie.id_estado_conservacion);
+            statement.setString(5, especie.estadoConservacionId);
             statement.setString(6, especie.id);
             statement.executeUpdate();
             return true;
@@ -116,7 +118,7 @@ public class OracleEspecieStore implements EspecieStore {
 
     @Override
     public boolean delete(String id) {
-        final String query = "DELETE FROM especies WHERE id = ?";
+        final String query = "DELETE FROM especie WHERE id = ?";
 
         try {
             final PreparedStatement statement = connection.prepareStatement(query);

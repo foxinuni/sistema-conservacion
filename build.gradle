@@ -26,7 +26,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'sistemas.conservacion'
-    mainClass = 'sistemas.conservacion.Application'
+    mainClass = 'sistemas.conservacion.Bootstrap'
 }
 
 javafx {
@@ -46,6 +46,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.postgresql/postgresql
     implementation("org.postgresql:postgresql:42.7.3")
+
+    // https://mvnrepository.com/artifact/com.google.inject/guice
+    implementation("com.google.inject:guice:7.0.0")
 }
 
 test {

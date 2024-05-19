@@ -1,6 +1,6 @@
-package sistemas.conservacion;
+package sistemas.conservacion.types;
 
-public enum Page {
+public enum Subview {
     ESTADO("estado","Estado", "/sistemas/conservacion/estado-view.fxml"),
     ESPECIE("especie","Especie", "/sistemas/conservacion/especie-view.fxml"),
     OBSERVACION("observacion", "Observación", "/sistemas/conservacion/observacion-view.fxml");
@@ -9,7 +9,7 @@ public enum Page {
     private final String title;
     private final String fxml;
 
-    Page(String id, String title, String fxml) {
+    Subview(String id, String title, String fxml) {
         this.id = id;
         this.title = title;
         this.fxml = fxml;
