@@ -4,4 +4,14 @@
 
 .good-button:hover {
     -fx-background-color: rgb(96, 255, 139);
+    -fx-cursor: hand;
+}
+
+.warn-button {
+    -fx-background-color: rgb(195, 198, 219);
+}
+
+.warn-button:hover {
+    -fx-background-color: rgb(162, 164, 176);
+    -fx-cursor: hand;
 }

@@ -4,6 +4,7 @@
 
 .button:hover {
     -fx-background-color: rgb(82, 126, 173);
+    -fx-cursor: hand;
 }
 
 .button.selected {

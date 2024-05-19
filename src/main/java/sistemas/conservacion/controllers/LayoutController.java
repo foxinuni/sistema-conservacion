@@ -10,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import sistemas.conservacion.types.NodeLoader;
 import sistemas.conservacion.types.Subview;
 
 import java.io.InputStream;
@@ -28,12 +29,12 @@ public class LayoutController {
     public VBox leftMenu;
 
     public void initialize() {
-        if (loadPage(Subview.ESPECIE)) {
+        if (loadSubview(Subview.ESPECIE)) {
             log.info("Loaded page: {}", currentSubview.getTitle());
         }
     }
 
-    public boolean loadPage(Subview subview) {
+    public boolean loadSubview(Subview subview) {
         if (currentSubview == subview) {
             return true;
         }
@@ -50,6 +51,11 @@ public class LayoutController {
             final FXMLLoader fxmlLoader = injector.getInstance(FXMLLoader.class);
             final Node pane = fxmlLoader.load(resource);
 
+            // Set the loader function
+            if (fxmlLoader.getController() instanceof NodeLoader nodeLoader) {
+                nodeLoader.setLoaderFunc(this::internalLoadPane);
+            }
+
             // Set the current page
             mainPane.setCenter(pane);
             currentSubview = subview;
@@ -61,6 +67,16 @@ public class LayoutController {
             return false;
         }
 
+        return true;
+    }
+
+    public boolean internalLoadPane(Node pane) {
+        if (pane == null) {
+            log.error("Attempted to load a null pane");
+            return false;
+        }
+
+        mainPane.setCenter(pane);
         return true;
     }
 
@@ -90,14 +106,14 @@ public class LayoutController {
 
     // Button event handlers
     public void onEstadoClick() {
-        loadPage(Subview.ESTADO);
+        loadSubview(Subview.ESTADO);
     }
 
     public void onEspecieClick() {
-        loadPage(Subview.ESPECIE);
+        loadSubview(Subview.ESPECIE);
     }
 
     public void onObservacionClick() {
-        loadPage(Subview.OBSERVACION);
+        loadSubview(Subview.OBSERVACION);
     }
 }

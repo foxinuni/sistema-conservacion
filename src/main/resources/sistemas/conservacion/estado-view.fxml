@@ -24,7 +24,7 @@
                   </Label>
                </left>
                <right>
-                  <Button mnemonicParsing="false" styleClass="good-button" text="Crear Nueva" textFill="#000501" BorderPane.alignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#onCrearClick" styleClass="good-button" text="Crear Nueva" textFill="#000501" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="Roboto Medium" size="13.0" />
                      </font></Button>

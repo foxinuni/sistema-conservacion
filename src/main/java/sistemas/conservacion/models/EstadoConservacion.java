@@ -22,4 +22,16 @@ public class EstadoConservacion {
     public String getDefinicionEstado() {
         return definicionEstado;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setEstadoConservacion(String estadoConservacion) {
+        this.estadoConservacion = estadoConservacion;
+    }
+
+    public void setDefinicionEstado(String definicionEstado) {
+        this.definicionEstado = definicionEstado;
+    }
 }

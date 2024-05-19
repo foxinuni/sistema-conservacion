@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane prefHeight="600" prefWidth="800" stylesheets="@css/global.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemas.conservacion.controllers.EstadoFormController">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <BorderPane prefHeight="600" prefWidth="800" style="-fx-background-color: #dfe7f0;">
+         <top>
+            <BorderPane prefHeight="56.0" prefWidth="600.0" style="-fx-background-color: #F0F4F8;" BorderPane.alignment="CENTER">
+               <left>
+                  <Label text="Detalles de Estado de Conservacion" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+               </left>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <right>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#onDescartarClick" styleClass="warn-button" text="Descartar" textFill="#000501" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="Roboto Medium" size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onGuardarClick" styleClass="good-button" text="Guardar" textFill="#000501" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="Roboto Medium" size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </right>
+            </BorderPane>
+         </top>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <center>
+            <VBox fx:id="formVBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <children>
+                  <HBox fx:id="errorHBox" alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="760.0" style="-fx-background-color: #ff003d;">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label fx:id="errorText" text="Ha ocurrido un problema! Skill issue." textFill="#f8f8f8">
+                           <font>
+                              <Font name="Roboto Medium" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="374.0" minWidth="10.0" prefWidth="272.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="585.0" minWidth="10.0" prefWidth="488.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField fx:id="formId" onKeyTyped="#onIdTyped" prefWidth="190.0" promptText="ID (Ej. EC1234)">
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="formEstado" promptText="Estado (Ej. Peligro de Extinción)" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <TextArea fx:id="formDetalles" prefHeight="254.0" prefWidth="372.0" promptText="Describe el estado de conservacion a continuacion..." wrapText="true">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextArea>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</GridPane>
