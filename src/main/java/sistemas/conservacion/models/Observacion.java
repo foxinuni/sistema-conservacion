@@ -48,4 +48,32 @@ public class Observacion {
     public String getNota() {
         return nota;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setEspecieId(String especieId) {
+        this.especieId = especieId;
+    }
+
+    public void setCantidadObservada(int cantidadObservada) {
+        this.cantidadObservada = cantidadObservada;
+    }
+
+    public void setLatitud(float latitud) {
+        this.latitud = latitud;
+    }
+
+    public void setLongitud(float longitud) {
+        this.longitud = longitud;
+    }
+
+    public void setFechaHora(Timestamp fechaHora) {
+        this.fechaHora = fechaHora;
+    }
+
+    public void setNota(String nota) {
+        this.nota = nota;
+    }
 }

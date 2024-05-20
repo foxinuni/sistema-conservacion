@@ -1,5 +1,7 @@
 package sistemas.conservacion.models;
 
+import javafx.util.StringConverter;
+
 public class Especie {
     public String id;
     public String nombreCientifico;
@@ -63,5 +65,17 @@ public class Especie {
 
     public void setEstadoConservacionId(String estadoConservacionId) {
         this.estadoConservacionId = estadoConservacionId;
+    }
+
+    public static class EspecieStringConverter extends StringConverter<Especie> {
+        @Override
+        public String toString(Especie item) {
+            return item == null ? "" : item.getNombreComun();
+        }
+
+        @Override
+        public Especie fromString(String string) {
+            return null;
+        }
     }
 }

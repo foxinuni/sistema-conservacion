@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.function.Function;
 
 public class EstadoFormController implements NodeLoader {
-    private static final Logger log = LogManager.getLogger(EstadoController.class);
+    private static final Logger log = LogManager.getLogger(EstadoFormController.class);
     private Function<Node, Boolean> loaderFunc;
     private EstadoConservacion estadoConservacion;
 
